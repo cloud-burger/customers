@@ -1,72 +1,64 @@
 {
-	"info": {
-		"_postman_id": "5e4508a0-1d78-4aa2-8855-879761d98a32",
-		"name": "Customers",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "15653232"
-	},
-	"item": [
-		{
-			"name": "create",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "accept",
-						"value": "application/json"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"documentNumber\": \"51460431081\",\n  \"name\": \"Joaozinho\",\n  \"email\": \"johndue@gmail.com\"\n}"
-				},
-				"url": {
-					"raw": "http://localhost:8080/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "find-by-document-number",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "accept",
-						"value": "application/json"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:8080/:documentNumber",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						":documentNumber"
-					],
-					"variable": [
-						{
-							"key": "documentNumber",
-							"value": "51460431081"
-						}
-					]
-				}
-			},
-			"response": []
-		}
-	]
+  "info": {
+    "_postman_id": "5e4508a0-1d78-4aa2-8855-879761d98a32",
+    "name": "Customers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "15653232"
+  },
+  "item": [
+    {
+      "name": "create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"documentNumber\": \"51460431081\",\n  \"name\": \"Joaozinho\",\n  \"email\": \"johndue@gmail.com\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/customers",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": [""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "find-by-document-number",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/customers/:documentNumber",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": [":documentNumber"],
+          "variable": [
+            {
+              "key": "documentNumber",
+              "value": "51460431081"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
 }

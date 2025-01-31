@@ -16,7 +16,7 @@
     }
   ],
   "paths": {
-    "/": {
+    "/customers": {
       "post": {
         "tags": ["Customer"],
         "summary": "Create customer",
@@ -47,7 +47,7 @@
         }
       }
     },
-    "/{documentNumber}": {
+    "/customers/{documentNumber}": {
       "get": {
         "tags": ["Customer"],
         "summary": "Find customer by document number",

@@ -14,8 +14,8 @@ const PORT = +env.PORT;
 
 const router = Router();
 
-router.post('/', createCustomer);
-router.get('/:documentNumber', findCustomerByDocumentNumber);
+router.post('/customers/', createCustomer);
+router.get('/customers/:documentNumber', findCustomerByDocumentNumber);
 
 app.use(bodyParser.json());
 app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swagger));
