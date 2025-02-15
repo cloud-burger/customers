@@ -3,21 +3,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: self-service-customer
-  name: self-service-customer
+    app: self-service-customers
+  name: self-service-customers
   namespace: self-service
 spec:
   selector:
     matchLabels:
-      app: self-service-customer
+      app: self-service-customers
   template:
     metadata:
       labels:
-        app: self-service-customer
+        app: self-service-customers
     spec:
       containers:
-        - image: 594646746001.dkr.ecr.us-east-1.amazonaws.com/self-service-customer:0.1.0
-          name: self-service-customer
+        - image: 594646746001.dkr.ecr.us-east-1.amazonaws.com/self-service-customers:latest
+          name: self-service-customers
           ports:
             - name: http
               containerPort: 8080
@@ -56,8 +56,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: self-service-customer
-  name: self-service-customer
+    app: self-service-customers
+  name: self-service-customers
   namespace: self-service
 spec:
   ports:
@@ -66,20 +66,20 @@ spec:
       protocol: TCP
       targetPort: http
   selector:
-    app: self-service-customer
+    app: self-service-customers
   type: ClusterIP
 
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: self-service-customer
+  name: self-service-customers
   namespace: self-service
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: self-service-customer
+    name: self-service-customers
   minReplicas: 2
   maxReplicas: 30
   metrics:
@@ -94,7 +94,7 @@ spec:
 apiVersion: networking.istio.io/v1
 kind: VirtualService
 metadata:
-  name: self-service-customer
+  name: self-service-customers
   namespace: self-service
 spec:
   gateways:
@@ -102,10 +102,10 @@ spec:
   hosts:
     - api.cloudburger.com.br
   http:
-    - name: self-service-customer
+    - name: self-service-customers
       match:
         - uri:
-            prefix: /customer/
+            prefix: /customers/
       route:
         - destination:
-            host: self-service-customer
+            host: self-service-customers
