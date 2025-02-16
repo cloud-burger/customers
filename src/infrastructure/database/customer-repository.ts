@@ -6,7 +6,7 @@ import { CustomerDbSchema } from './dtos/customer-db-schema';
 import { DatabaseCustomerMapper } from './mappers/database-customer';
 
 export class CustomerRepository implements ICustomerRepository {
-  private client: DynamoDBClient;
+  private readonly client: DynamoDBClient;
 
   constructor(private customersTable: string) {
     this.client = new DynamoDBClient();
@@ -29,7 +29,7 @@ export class CustomerRepository implements ICustomerRepository {
 
     const { Items } = result;
 
-    const hasCustomer = Items && Items.length;
+    const hasCustomer = Items?.length;
 
     if (!hasCustomer) {
       return null;

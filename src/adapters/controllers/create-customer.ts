@@ -12,7 +12,7 @@ import { CreateCustomerUseCase } from '~/use-cases/create-customer';
 import { createCustomerSchema } from './validations/create-customer-schema';
 
 export class CreateCustomerController {
-  constructor(private createCustomerUseCase: CreateCustomerUseCase) {}
+  constructor(private readonly createCustomerUseCase: CreateCustomerUseCase) {}
 
   handler: Controller = async (
     request: Request,
@@ -26,7 +26,7 @@ export class CreateCustomerController {
 
     const { data, errors } = validateSchema(createCustomerSchema, body);
 
-    const hasValidationErrors = errors && errors.length;
+    const hasValidationErrors = errors?.length;
 
     if (hasValidationErrors) {
       logger.warn({

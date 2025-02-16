@@ -10,7 +10,7 @@ interface Input {
 }
 
 export class CreateCustomerUseCase {
-  constructor(private customerRepository: CustomerRepository) {}
+  constructor(private readonly customerRepository: CustomerRepository) {}
 
   async execute({ documentNumber, email, name }: Input): Promise<Customer> {
     const customer =
