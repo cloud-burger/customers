@@ -31,26 +31,8 @@ spec:
           env:
             - name: PORT
               value: "8080"
-            - name: DATABASE_PORT
-              value: "5432"
-            - name: DATABASE_NAME
-              value: self_service
-            - name: NOTIFICATION_WEBHOOK_URL
-              value: "http://api.cloudburger.com.br/webhook"
-            - name: MERCADO_PAGO_API_URL
-              value: "https://api.mercadopago.com//instore/orders/qr/seller/collectors/1995444195/pos/SELFSERVICE2024/qrs"
-            - name: MERCADO_PAGO_CREATE_QR_API_URL
-              value: "https://api.mercadopago.com//instore/orders/qr/seller/collectors/1995444195/pos/SELFSERVICE2024/qrs"
-            - name: MERCADO_PAGO_GET_QR_INFO_API_URL
-              value: "https://api.mercadolibre.com/merchant_orders/"
-            - name: MERCADO_PAGO_API_TOKEN
-              value: "APP_USR-7785106356073680-091816-d1c29245fbb399a70031428b1c22463c-1995444195"
-            - name: DATABASE_HOST
-              value: postgres.cf6esggi8qzc.us-east-1.rds.amazonaws.com
-            - name: DATABASE_USERNAME
-              value: self_service
-            - name: DATABASE_PASSWORD
-              value: self_service
+            - name: DYNAMO_TABLE_CUSTOMERS
+              value: self-service-customers-prod
 ---
 apiVersion: v1
 kind: Service
