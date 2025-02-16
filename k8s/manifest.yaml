@@ -105,7 +105,7 @@ spec:
     - name: self-service-customers
       match:
         - uri:
-            prefix: /customers/
+            prefix: /customers
       route:
         - destination:
             host: self-service-customers
