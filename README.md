@@ -72,3 +72,7 @@ Este script removerá as imagens atuais e subirá novas, já com os arquivos Typ
 ## Banco de Dados
 
 O projeto utiliza um banco de dados DynamoDB.
+
+## Cobertura de testes (Sonar Qube)
+![image](https://github.com/user-attachments/assets/c2a4e4d2-dfae-4313-9e77-d93a25658960)
+
