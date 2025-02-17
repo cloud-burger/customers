@@ -8,7 +8,7 @@ interface Input {
 }
 
 export class FindCustomerByDocumentNumberUseCase {
-  constructor(private customerRepository: CustomerRepository) {}
+  constructor(private readonly customerRepository: CustomerRepository) {}
 
   async execute({ documentNumber }: Input): Promise<Customer> {
     const customer =

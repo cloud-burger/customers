@@ -6,7 +6,7 @@ import { FindCustomerByDocumentNumberUseCase } from '~/use-cases/find-customer-b
 
 export class FindCustomerByDocumentNumberController {
   constructor(
-    private findCustomerByDocumentNumberUseCase: FindCustomerByDocumentNumberUseCase,
+    private readonly findCustomerByDocumentNumberUseCase: FindCustomerByDocumentNumberUseCase,
   ) {}
 
   handler: Controller = async (
